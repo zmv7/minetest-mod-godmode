@@ -17,19 +17,17 @@ core.register_chatcommand("god",{
     func = function(name,param)
         if param == "" then param = name end
         local player = core.get_player_by_name(param)
-        if not player then return false, "No Player" end
-        local isgod = gods:get_string(name)
+        local isgod = gods:get_string(param)
         if isgod == "1" then
-            player:set_armor_groups({immortal=0})
+            if player then player:set_armor_groups({immortal=0}) end
             gods:set_string(param,"")
             return true, "Godmode disabled for "..param
         else
-            player:set_armor_groups({immortal=1})
+            if player then player:set_armor_groups({immortal=1}) end
             gods:set_string(param,"1")
             return true, "Godmode enabled for "..param
         end
 end})
-      
 core.register_chatcommand("gods",{
     description = "Show list of godmoded players",
     privs = {godmode=true},

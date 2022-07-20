@@ -5,7 +5,7 @@ core.register_on_joinplayer(function(player)
     if not name then return end
     local isgod = gods:get_string(name)
     if isgod == "1" then
-        core.after(0.5,function()
+        core.after(0.1,function()
             player:set_armor_groups({immortal=1})
         end)
     end

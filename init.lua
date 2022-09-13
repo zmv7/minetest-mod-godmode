@@ -33,9 +33,9 @@ core.register_chatcommand("gods",{
     privs = {godmode=true},
     func = function(name,param)
         local msg = "Gods: "
-        local table = gods:to_table().fields
-        for nick,val in pairs(table) do
+        local tabl = gods:to_table().fields
+        for nick,val in pairs(tabl) do
             msg = msg..nick..", "
         end
-        return true, msg
+        return true, msg:sub(1,-3)
 end})

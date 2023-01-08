@@ -37,5 +37,6 @@ core.register_chatcommand("gods",{
         for nick,val in pairs(tabl) do
             table.insert(out,nick)
         end
+        table.sort(out)
         return true, "Gods: "..table.concat(out,", ")
 end})
